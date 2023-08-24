@@ -67,9 +67,10 @@ class DonController extends Controller
                 # code...
                 return redirect($response->response_text);
             } else {
-                return redirect('/don');
+                return back()->with('info', 'la requête a échoué, soumettez à nouveau le formulaire');
             }
         }
+        return back()->with('info', 'la requête a échoué, soumettez à nouveau le formulaire');
     }
 
 
@@ -79,7 +80,7 @@ class DonController extends Controller
     }
 
     public function payStatus(): RedirectResponse
-    {
+    {   
         $response = Ligdicash::ligdicashGetPayStatus(session('invoiceToken'));
         //dd($response);
 
