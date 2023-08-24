@@ -18,13 +18,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+})->name('accueil');
+
+Route::prefix('admin')->middleware(['auth', 'role:admin'])->name('admin.')->controller(AdminController::class)->group(function(){
+    Route::get('/', 'index')->name('root');
 });
 
-Route::prefix('admin')->name('admin.')->controller(AdminController::class)->group(function(){
-    Route::get('/', 'index');
-});
-
-Route::prefix('dons')->name('dons.')->controller(DonController::class)->group(function(){
+Route::middleware('auth')->prefix('dons')->name('dons.')->controller(DonController::class)->group(function(){
     Route::get('/','index')->name('don');
     Route::get('/don', 'create')->name('don.faire');
     Route::post('/don', 'store')->name('don.faire');

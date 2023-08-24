@@ -12,6 +12,11 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('accueil')" :active="request()->routeIs('accueil')">
+                        {{ __('Accueil') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dons.don')" :active="request()->routeIs('dons.don')">
                         {{ __('Mon espace de don') }}
                     </x-nav-link>
@@ -21,6 +26,13 @@
                         {{ __('Faire un don') }}
                     </x-nav-link>
                 </div>
+                @if(Auth::user()->role === 'admin')
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('admin.root')" :active="request()->routeIs('admin.root')">
+                        {{ __('Administration') }}
+                    </x-nav-link>
+                </div>
+                @endif
             </div>
 
             <!-- Settings Dropdown -->
