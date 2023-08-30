@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\DB;
 
 class DonController extends Controller
 {
-
+    
     /**
      * Display a listing of the resource.
      */

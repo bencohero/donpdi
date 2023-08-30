@@ -34,6 +34,32 @@
             <x-text-input id="lastname" class="block mt-1 w-full" type="text" name="lastname" :value="old('lastname', $user->lastname)" required autofocus autocomplete="lastname" />
             <x-input-error :messages="$errors->get('lastname')" class="mt-2" />
         </div>
+        
+        <div>
+            <x-input-label for="code_pays" :value="__('Indicatif')" />
+            <x-text-input id="code_pays" class="block mt-1 w-full" type="number" name="code_pays" :value="old('code_pays', $phone->code_pays)" required autofocus autocomplete="code_pays" />
+            <x-input-error :messages="$errors->get('code_pays')" class="mt-2" />
+        </div>
+        <div>
+            <x-input-label for="phoneNumber" :value="__('Téléphone')" />
+            <x-text-input id="phoneNumber" class="block mt-1 w-full" type="number" name="phoneNumber" :value="old('phoneNumber', $phone->phoneNumber)" required autofocus autocomplete="phoneNumber" />
+            <x-input-error :messages="$errors->get('phoneNumber')" class="mt-2" />
+        </div>
+        <div>
+            <x-input-label for="pays" :value="__('Pays')" />
+            <x-text-input id="pays" class="block mt-1 w-full" type="text" name="pays" :value="old('pays', $adresse->pays)" required autofocus autocomplete="pays" />
+            <x-input-error :messages="$errors->get('pays')" class="mt-2" />
+        </div>
+        <div>
+            <x-input-label for="ville" :value="__('Ville')" />
+            <x-text-input id="ville" class="block mt-1 w-full" type="text" name="ville" :value="old('ville', $adresse->ville)" required autofocus autocomplete="ville" />
+            <x-input-error :messages="$errors->get('ville')" class="mt-2" />
+        </div>
+        <div>
+            <x-input-label for="postale" :value="__('Postale')" />
+            <x-text-input id="postale" class="block mt-1 w-full" type="number" name="postale" :value="old('postale', $adresse->postale)" required autofocus autocomplete="postale" />
+            <x-input-error :messages="$errors->get('ville')" class="mt-2" />
+        </div>
 
         <div>
             <x-input-label for="email" :value="__('Email')" />

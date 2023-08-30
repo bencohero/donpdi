@@ -24,13 +24,12 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->name('admin.')->cont
     Route::get('/', 'index')->name('root');
 });
 
-Route::middleware('auth')->prefix('dons')->name('dons.')->controller(DonController::class)->group(function(){
-    Route::get('/','index')->name('don');
+Route::middleware('auth')->prefix('dons')->name('dons.')->controller(DonController::class)->group(function () {
+    Route::get('/', 'index')->name('don');
     Route::get('/don', 'create')->name('don.faire');
     Route::post('/don', 'store')->name('don.faire');
     Route::get('/don/payementResponse','payStatus')->name('status');
     Route::get('/don/cancelpayment', 'cancelPayment');
-
 });
 
 Route::get('/dashboard', function () {
@@ -43,4 +42,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

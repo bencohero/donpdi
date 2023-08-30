@@ -5,7 +5,7 @@
     </div>
     <div class="w-1/3 ml-3">
       <select wire:model="perPage" name="perPage" aria-placeholder="Nombre de lignes par page" class="w-full rounded  align-content-end" id="">
-        <option value="">--Choisir nombre de lignes par page--</option>
+        <option value="10">--Choisir nombre de lignes par page--</option>
         <option value="25">25</option>
         <option value="50">50</option>
         <option value="100">100</option>
